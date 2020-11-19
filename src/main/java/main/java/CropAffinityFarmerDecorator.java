@@ -8,7 +8,7 @@ public class CropAffinityFarmerDecorator extends FarmerDecorator {
     }
 
     @Override
-    public double cropAffinity() {
-        return decoratedFarmer.cropAffinity() * affinityMultiplier;
+    public double getCropAffinity() {
+        return decoratedFarmer.getCropAffinity() * affinityMultiplier;
     }
 }

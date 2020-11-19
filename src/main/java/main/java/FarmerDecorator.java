@@ -8,17 +8,17 @@ public abstract class FarmerDecorator extends Farmer {
     }
 
     @Override
-    public double cropAffinity() {
+    public double getCropAffinity() {
         return decoratedFarmer.cropAffinity;
     }
 
     @Override
-    public double husbandryAffinity() {
+    public double getHusbandryAffinity() {
         return decoratedFarmer.husbandryAffinity;
     }
 
     @Override
-    public double profitAffinity() {
+    public double getProfitAffinity() {
         return decoratedFarmer.profitAffinity;
     }
 

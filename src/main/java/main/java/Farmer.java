@@ -8,19 +8,19 @@ public abstract class Farmer {
     protected double husbandryAffinity;
     protected double profitAffinity;
 
-    public double cropAffinity() {
+    public double getCropAffinity() {
         Random random = new Random();
         double cropAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
         return cropAffinityBase;
     }
 
-    public double husbandryAffinity() {
+    public double getHusbandryAffinity() {
         Random random = new Random();
         double husbandryAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
         return husbandryAffinityBase;
     }
 
-    public double profitAffinity() {
+    public double getProfitAffinity() {
         Random random = new Random();
         double profitAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
         return profitAffinityBase;
