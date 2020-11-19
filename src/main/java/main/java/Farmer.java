@@ -27,7 +27,6 @@ public abstract class Farmer {
     }
 
     public String getName() {
-
         return farmerName;
     }
 }
