@@ -5,13 +5,13 @@ public class Main {
 
         Farmer farmer1 = new BaseFarmers("John");
         Farmer farmer2 = (new CropAffinityFarmerDecorator(new BaseFarmers("Jason")));
-        double cropAffinity = farmer1.cropAffinity();
-        double husbandryAffinity = farmer1.husbandryAffinity();
-        double profitAffinity = farmer1.profitAffinity();
+        double cropAffinity = farmer1.getCropAffinity();
+        double husbandryAffinity = farmer1.getHusbandryAffinity();
+        double profitAffinity = farmer1.getProfitAffinity();
 
-        double cropAffinity2 = farmer2.cropAffinity();
-        double husbandryAffinity2 = farmer2.husbandryAffinity();
-        double profitAffinity2 = farmer2.profitAffinity();
+        double cropAffinity2 = farmer2.getCropAffinity();
+        double husbandryAffinity2 = farmer2.getHusbandryAffinity();
+        double profitAffinity2 = farmer2.getProfitAffinity();
 
         System.out.println(farmer1.getName() + "'s stats are \nCrop Affinity : " + cropAffinity
                 + " \nHusbrandry Affinity :" + husbandryAffinity + " \nProfitAffinity : " + profitAffinity + "\n");
