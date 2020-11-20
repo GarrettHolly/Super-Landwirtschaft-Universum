@@ -8,16 +8,38 @@ public class GameLoop {
     // private double animalAge = 1;
     GameState gameState;
 
+    public GameLoop(GameState gameState) {
+        this.gameState = gameState;
+    }
+
     public void loop() {
         day();
         night();
     }
 
     private void day() {
-
+        diseasedCropCheck();
+        cureDiseasedCropCheck();
+        predatorAttackCropCheck();
     }
 
     private void night() {
+        predatorAttackAnimalCheck();
+    }
+
+    private void diseasedCropCheck() {
+
+    }
+
+    private void cureDiseasedCropCheck() {
+
+    }
+
+    private void predatorAttackAnimalCheck() {
+
+    }
+
+    private void predatorAttackCropCheck() {
 
     }
 

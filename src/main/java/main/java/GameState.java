@@ -1,5 +1,7 @@
 package main.java;
 
+import java.util.List;
+import java.util.Map;
 import lombok.Data;
 
 @Data
@@ -9,6 +11,6 @@ public class GameState {
     private int numHealthyCrops;
     private int numDiseasedCrops;
     private Farmer farmer;
-    // private DayNightCycle dayNightCycle;
-    // private Map<String, List<Animal>> animals;
+    private DayNightCycle dayNightCycle;
+    private Map<String, List<Animal>> animals;
 }
