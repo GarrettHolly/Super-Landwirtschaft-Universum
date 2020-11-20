@@ -7,4 +7,12 @@ public class GameLoop {
     // private final double farmerTreatCropChance = 0.7;
     // private double animalAge = 1;
 
+    private void day() {
+
+    }
+
+    private void night() {
+
+    }
+
 }
