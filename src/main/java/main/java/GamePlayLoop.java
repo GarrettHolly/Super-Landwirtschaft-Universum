@@ -1,6 +1,6 @@
 package main.java;
 
-public class GamePlayLoop {
+public class GameplayLoop {
     private final double animalPredatorChance = 0.1;
     private final double cropWitherChance = 0.4;
     private final double cropPredatorChance = 0.1;
