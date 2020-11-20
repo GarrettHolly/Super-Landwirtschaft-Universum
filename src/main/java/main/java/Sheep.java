@@ -8,6 +8,9 @@ public class Sheep {
         this.animalAffinity = animalAffinity;
     }
 
+    /**
+     * @return double
+     */
     public double getAffinity() {
         return animalAffinity.getAffinity();
     }

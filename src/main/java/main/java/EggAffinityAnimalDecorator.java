@@ -7,6 +7,9 @@ public class EggAffinityAnimalDecorator extends AnimalDecorator {
         super(decoratedAnimal);
     }
 
+    /**
+     * @return double
+     */
     @Override
     public double getEggAffinity() {
         return decoratedAnimal.getEggAffinity() * affinityMultiplier;

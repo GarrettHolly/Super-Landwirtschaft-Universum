@@ -9,21 +9,33 @@ public abstract class Farmer {
     protected double profitAffinity;
     Random random = new Random();
 
+    /**
+     * @return double
+     */
     public double getCropAffinity() {
         double cropAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
         return cropAffinityBase;
     }
 
+    /**
+     * @return double
+     */
     public double getHusbandryAffinity() {
         double husbandryAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
         return husbandryAffinityBase;
     }
 
+    /**
+     * @return double
+     */
     public double getProfitAffinity() {
         double profitAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
         return profitAffinityBase;
     }
 
+    /**
+     * @return String
+     */
     public String getName() {
         return farmerName;
     }

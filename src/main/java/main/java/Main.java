@@ -1,6 +1,10 @@
 package main.java;
 
 public class Main {
+
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
 
         Farmer farmer1 = new BaseFarmers("John");

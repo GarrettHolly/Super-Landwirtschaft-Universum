@@ -7,6 +7,9 @@ public class MilkAffinityAnimalDecorator extends AnimalDecorator {
         super(decoratedAnimal);
     }
 
+    /**
+     * @return double
+     */
     @Override
     public double getMilkAffinity() {
         return decoratedAnimal.getMilkAffinity() * affinityMultiplier;

@@ -7,6 +7,9 @@ public class ProfitAffinityFarmerDecorator extends FarmerDecorator {
         super(decoratedFarmer);
     }
 
+    /**
+     * @return double
+     */
     @Override
     public double getProfitAffinity() {
         return decoratedFarmer.getProfitAffinity() * affinityMultiplier;
