@@ -1,12 +1,14 @@
 package main.java;
 
-import java.util.Random;
-
 public class Chicken {
+    AnimalAffinity animalAffinity;
+    int daysLeftUnitilHarvest;
 
-    public double getEggAffinity() {
-        Random random = new Random();
-        double eggAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
-        return eggAffinityBase;
+    public Chicken(AnimalAffinity animalAffinity) {
+        this.animalAffinity = animalAffinity;
+    }
+
+    public double getAffinity() {
+        return animalAffinity.getAffinity();
     }
 }

@@ -1,11 +1,14 @@
 package main.java;
 
+import java.util.Random;
+
 public class GameLoop {
     // private final double animalPredatorChance = 0.1;
     // private final double cropWitherChance = 0.4;
     // private final double cropPredatorChance = 0.1;
     // private final double farmerTreatCropChance = 0.7;
     // private double animalAge = 1;
+    Random random = new Random();
     GameState gameState;
 
     public GameLoop(GameState gameState) {
@@ -28,11 +31,21 @@ public class GameLoop {
     }
 
     private void diseasedCropCheck() {
-
+        for (int i = 0; i < gameState.getNumDiseasedCrops(); i++) {
+            if ((random.nextDouble() > 0.70)) {
+                gameState.setNumHealthyCrops(gameState.getNumHealthyCrops() - 1);
+                gameState.setNumDiseasedCrops(gameState.getNumDiseasedCrops() + 1);
+            }
+        }
     }
 
     private void cureDiseasedCropCheck() {
-
+        for (int i = 0; i < gameState.getNumHealthyCrops(); i++) {
+            if ((random.nextDouble() > 0.30)) {
+                gameState.setNumHealthyCrops(gameState.getNumDiseasedCrops() + 1);
+                gameState.setNumDiseasedCrops(gameState.getNumHealthyCrops() - 1);
+            }
+        }
     }
 
     private void predatorAttackAnimalCheck() {
