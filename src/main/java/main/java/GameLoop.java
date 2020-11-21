@@ -56,4 +56,18 @@ public class GameLoop {
 
     }
 
+    // TODO: decorated chicken purhcased chance fill out;
+
+    private void chickenPurchased() {
+
+    }
+
+    private void cowPurchased() {
+
+    }
+
+    private void sheepPurchased() {
+
+    }
+
 }
