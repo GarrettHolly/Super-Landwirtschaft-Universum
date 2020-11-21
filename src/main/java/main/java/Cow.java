@@ -1,6 +1,6 @@
 package main.java;
 
-public class Cow {
+public class Cow implements Animal {
     AnimalAffinity animalAffinity;
     int daysLeftUnitilHarvest;
 

@@ -56,8 +56,6 @@ public class GameLoop {
 
     }
 
-    // TODO: decorated chicken purhcased chance fill out;
-
     private void chickenPurchased() {
 
     }
@@ -70,4 +68,19 @@ public class GameLoop {
 
     }
 
+    private void chickenIncome() {
+
+    }
+
+    private void cowIncome() {
+
+    }
+
+    private void SheepIncome() {
+
+    }
+
+    private void CropIncome() {
+
+    }
 }

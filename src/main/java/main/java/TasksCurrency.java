@@ -4,7 +4,7 @@ public class TasksCurrency {
     private final double chickenIncome = 1.0;
     private final double cowIncome = 5.0;
     private final double sheepIncome = 8.0;
-    private final double cropIncome = 30.0;
+    private final double cropIncome = 95.0;
 
     /**
      * @return double
