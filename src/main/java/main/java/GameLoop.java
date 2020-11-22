@@ -14,9 +14,8 @@ public class GameLoop {
     AnimalAffinity animalAffinity;
     TasksCurrency incomeCurrency;
 
-    public GameLoop(GameState gameState, TasksCurrency incomCurrency) {
+    public GameLoop(GameState gameState) {
         this.gameState = gameState;
-        this.incomeCurrency = incomCurrency;
         this.animalAffinity = new AnimalAffinity();
     }
 
@@ -25,6 +24,14 @@ public class GameLoop {
         night();
     }
 
+    // loop through animals lists
+    // inside loop body call methods
+    // call death check
+    // call harvest check - check for age
+    // check age < 3 return early
+    // check harvest day daysLeftUnitilHarvest % 2 == 1 , call harvestAnimal(animal)
+    // refacore calculateIncome() each animal into harvestAnimal(animal)
+    // increment age
     private void day() {
         diseasedCropCheck();
         cureDiseasedCropCheck();
@@ -36,7 +43,34 @@ public class GameLoop {
         purchaseChickenCheck();
         purchaseCowCheck();
         purchaseSheepCheck();
+        upgradeFarmCheck();
         displayMoney();
+        animalChecks(gameState.getAnimals().get("Chicken"));
+    }
+
+    private void animalChecks(List<Animal> animals) {
+        // loop through animals lists
+        // inside loop body call methods
+        // call death check
+        // call harvest check - check for age
+        // check age < 3 return early
+        // check harvest day daysLeftUnitilHarvest % 2 == 1 , call harvestAnimal(animal)
+        // refacore calculateIncome() each animal into harvestAnimal(animal)
+        // increment age
+
+        for (Animal animal : animals) {
+            deathCheck(animal);
+            harvestAnimal(animal);
+            // animal.setAge(animal.getAge()+ 1);
+        }
+    }
+
+    private void deathCheck(Animal animal) {
+        // animal.get
+    }
+
+    private void harvestAnimal(Animal animal) {
+
     }
 
     private void night() {
@@ -141,10 +175,14 @@ public class GameLoop {
                 Animal chicken = (new ChickenAffinityDecorator(new Chicken(animalAffinity)));
                 List<Animal> chickens = gameState.getAnimals().get("Chicken");
                 chickens.add(chicken);
+                System.out.println("You have purchased a chicken.");
+                chickenCost += 5;
             } else {
                 Animal chicken = (new Chicken(animalAffinity));
                 List<Animal> chickens = gameState.getAnimals().get("Chicken");
                 chickens.add(chicken);
+                System.out.println("You have purchased a chicken.");
+                chickenCost += 5;
             }
         }
     }
@@ -156,10 +194,14 @@ public class GameLoop {
                 Animal cow = (new CowAffinityDecorator(new Cow(animalAffinity)));
                 List<Animal> cows = gameState.getAnimals().get("Cow");
                 cows.add(cow);
+                System.out.println("You have purchased a cow.");
+                cowCost += 10;
             } else {
                 Animal cow = (new Cow(animalAffinity));
                 List<Animal> cows = gameState.getAnimals().get("Cow");
                 cows.add(cow);
+                System.out.println("You have purchased a cow.");
+                cowCost += 10;
             }
         }
     }
@@ -171,10 +213,14 @@ public class GameLoop {
                 Animal sheep = (new SheepAffinityDecorator(new Sheep(animalAffinity)));
                 List<Animal> sheeps = gameState.getAnimals().get("Sheep");
                 sheeps.add(sheep);
+                System.out.println("You have purchased a sheep.");
+                sheepCost += 15;
             } else {
                 Animal sheep = (new Sheep(animalAffinity));
                 List<Animal> sheeps = gameState.getAnimals().get("Sheep");
                 sheeps.add(sheep);
+                System.out.println("You have purchased a sheep.");
+                sheepCost += 15;
             }
         }
     }
@@ -182,12 +228,13 @@ public class GameLoop {
     private void calculateChickenIncome() {
         double chickenIncome = incomeCurrency.getCowIncome();
         double total = 0;
-        for (Animal animal : gameState.getAnimals().get("Cow")) {
+        for (Animal animal : gameState.getAnimals().get("Chicken")) {
             Chicken chicken = (Chicken) animal;
             total += chickenIncome * chicken.getChickenAffinity() * gameState.getFarmer().getHusbandryAffinity()
                     * gameState.getFarmer().getProfitAffinity();
         }
         gameState.setCurrentMoney(gameState.getCurrentMoney() + total);
+        System.out.println("you made " + total + " money from chickens.");
     }
 
     private void calculateCowIncome() {
@@ -199,6 +246,7 @@ public class GameLoop {
                     * gameState.getFarmer().getProfitAffinity();
         }
         gameState.setCurrentMoney(gameState.getCurrentMoney() + total);
+        System.out.println("you made " + total + " money from cows.");
 
     }
 
@@ -211,6 +259,7 @@ public class GameLoop {
                     * gameState.getFarmer().getProfitAffinity();
         }
         gameState.setCurrentMoney(gameState.getCurrentMoney() + total);
+        System.out.println("you made " + total + " money from sheep.");
     }
 
     private void calculateCropIncome() {
@@ -220,15 +269,9 @@ public class GameLoop {
             cropIncome += cropIncome * gameState.getFarmer().getCropAffinity()
                     * gameState.getFarmer().getProfitAffinity();
         }
-        gameState.setCurrentMoney(gameState.getCurrentMoney() + (total * rainCheck()));
-    }
-
-    private void farmTeir() {
-
-    }
-
-    private void displayMoney() {
-        System.out.println(Math.round(gameState.getCurrentMoney()));
+        double rainCheckTotal = (total * rainCheck());
+        gameState.setCurrentMoney(gameState.getCurrentMoney() + rainCheckTotal);
+        System.out.println("you made " + rainCheckTotal + " money from chickens.");
     }
 
     private double rainCheck() {
@@ -249,4 +292,40 @@ public class GameLoop {
         }
         return 1;
     }
+
+    private void upgradeFarmCheck() {
+        double farmUpgradeCost = 1000;
+        if (gameState.getCurrentMoney() > farmUpgradeCost + 200) {
+            gameState.setNumFarms(gameState.getNumFarms() + 1);
+            farmUpgradeCost += 500;
+        }
+    }
+
+    private boolean winConditoin() {
+        if (gameState.getNumFarms() >= 6) {
+            return true;
+        }
+        return false;
+    }
+
+    private void displayMoney() {
+        System.out.println(Math.round(gameState.getCurrentMoney()));
+    }
+
+    private void calculateAnimalHarvestCooldown() {
+
+    }
+
+    private void calculateAnimalDaysToHarvest() {
+
+    }
+
+    private void calculateAnimalAge() {
+
+    }
+
+    private void calculateAnimalLifeCycle() {
+
+    }
+
 }

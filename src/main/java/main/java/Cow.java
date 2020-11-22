@@ -1,12 +1,15 @@
 package main.java;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public class Cow implements Animal {
     AnimalAffinity animalAffinity;
     @Getter
     double cowAffinity;
-    int daysLeftUnitilHarvest;
+    @Getter
+    @Setter
+    int age;
 
     public Cow(AnimalAffinity animalAffinity) {
         this.animalAffinity = animalAffinity;
