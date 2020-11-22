@@ -89,24 +89,36 @@ public class GameLoop {
     private void predatorAttackAnimalCheck() {
         if (random.nextDouble() > 0.90) {
             if (random.nextDouble() > 0.90) {
-                gameState.getAnimals().get("Sheep");
                 int randomElement = (gameState.getAnimals().get("Sheep").size());
                 gameState.getAnimals().get("Sheep").remove(randomElement);
+                System.out.println("A Sheep was killed during the night, you now have "
+                        + gameState.getAnimals().get("Sheep").size() + " sheep left.");
             } else if (random.nextDouble() > 0.75) {
-                gameState.getAnimals().get("Cow");
                 int randomElement = (gameState.getAnimals().size());
                 gameState.getAnimals().get("Cow").remove(randomElement);
+                System.out.println("A Cow was killed during the night, you now have "
+                        + gameState.getAnimals().get("Cow").size() + " cows left.");
             } else {
-                gameState.getAnimals().get("Chicken");
                 int randomElement = (gameState.getAnimals().size());
                 gameState.getAnimals().get("Chicken").remove(randomElement);
+                System.out.println("A Chicken was killed during the night, you now have "
+                        + gameState.getAnimals().get("Chicken").size() + " chickens left.");
             }
+        }
+        if (random.nextDouble() > 0.60) {
+            predatorAttackAnimalCheck();
         }
     }
 
     private void predatorAttackCropCheck() {
         if (random.nextDouble() > 0.90) {
-
+            gameState.setNumHealthyCrops(gameState.getNumHealthyCrops() - 1);
+            gameState.setNumDiseasedCrops(gameState.getNumHealthyCrops() - 1);
+            System.out.println(
+                    "A bunny has killed one of your crops you now have " + gameState.getNumHealthyCrops() + " left.");
+            if (random.nextDouble() > 0.50) {
+                predatorAttackCropCheck();
+            }
         }
     }
 
