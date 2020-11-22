@@ -13,7 +13,7 @@ public abstract class Farmer {
      * @return double
      */
     public double getCropAffinity() {
-        double cropAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
+        double cropAffinityBase = Math.round(random.nextDouble()) + 2 * .25 + 2;
         return cropAffinityBase;
     }
 
@@ -21,7 +21,7 @@ public abstract class Farmer {
      * @return double
      */
     public double getHusbandryAffinity() {
-        double husbandryAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
+        double husbandryAffinityBase = Math.round(random.nextDouble()) + 2 * .25 + 2;
         return husbandryAffinityBase;
     }
 
@@ -29,7 +29,7 @@ public abstract class Farmer {
      * @return double
      */
     public double getProfitAffinity() {
-        double profitAffinityBase = Math.round(random.nextDouble()) + 2 * .25;
+        double profitAffinityBase = Math.round(random.nextDouble()) + 2 * .25 + 2;
         return profitAffinityBase;
     }
 

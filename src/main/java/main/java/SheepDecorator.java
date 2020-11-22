@@ -9,7 +9,7 @@ public class SheepDecorator extends Sheep {
     }
 
     @Override
-    public double getAffinity() {
-        return decoratedSheep.getAffinity();
+    public void setAffinity() {
+        decoratedSheep.setAffinity();
     }
 }

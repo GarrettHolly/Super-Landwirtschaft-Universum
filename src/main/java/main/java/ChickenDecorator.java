@@ -9,7 +9,7 @@ public abstract class ChickenDecorator extends Chicken {
     }
 
     @Override
-    public double getAffinity() {
-        return decoratedChicken.getAffinity();
+    public void setAffinity() {
+        decoratedChicken.setAffinity();
     }
 }

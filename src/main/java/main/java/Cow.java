@@ -2,6 +2,7 @@ package main.java;
 
 public class Cow implements Animal {
     AnimalAffinity animalAffinity;
+    double cowAffinity;
     int daysLeftUnitilHarvest;
 
     public Cow(AnimalAffinity animalAffinity) {
@@ -11,7 +12,7 @@ public class Cow implements Animal {
     /**
      * @return double
      */
-    public double getAffinity() {
-        return animalAffinity.getAffinity();
+    public void setAffinity() {
+        cowAffinity = animalAffinity.getAffinity();
     }
 }

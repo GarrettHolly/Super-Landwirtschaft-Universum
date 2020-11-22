@@ -1,7 +1,7 @@
 package main.java;
 
 public class SheepAffinityDecorator extends SheepDecorator {
-    private final double affinityMultiplier = 2 + 1.5;
+    private final double affinityMultiplier = 3 + 1.5;
 
     public SheepAffinityDecorator(Sheep decoratedSheep, AnimalAffinity animalAffinity) {
         super(decoratedSheep, animalAffinity);
@@ -11,7 +11,8 @@ public class SheepAffinityDecorator extends SheepDecorator {
      * @return double
      */
     @Override
-    public double getAffinity() {
-        return decoratedSheep.getAffinity() * affinityMultiplier;
+    public void setAffinity() {
+        decoratedSheep.setAffinity();
+        decoratedSheep.sheepAffinity *= affinityMultiplier;
     }
 }
