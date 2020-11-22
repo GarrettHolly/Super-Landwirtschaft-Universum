@@ -3,8 +3,8 @@ package main.java;
 public class CowAffinityDecorator extends CowDecorator {
     private final double affinityMultiplier = 3 + 1.5;
 
-    public CowAffinityDecorator(Cow decoratedCow, AnimalAffinity animalAffinity) {
-        super(decoratedCow, animalAffinity);
+    public CowAffinityDecorator(Cow decoratedCow) {
+        super(decoratedCow);
     }
 
     @Override

@@ -1,14 +1,12 @@
 package main.java;
 
-public class SheepDecorator extends Sheep {
+public class SheepDecorator implements Animal {
     protected Sheep decoratedSheep;
 
-    public SheepDecorator(Sheep decoratedSheep, AnimalAffinity animalAffinity) {
-        super(animalAffinity);
+    public SheepDecorator(Sheep decoratedSheep) {
         this.decoratedSheep = decoratedSheep;
     }
 
-    @Override
     public void setAffinity() {
         decoratedSheep.setAffinity();
     }

@@ -1,7 +1,10 @@
 package main.java;
 
+import lombok.Getter;
+
 public class Sheep implements Animal {
     AnimalAffinity animalAffinity;
+    @Getter
     double sheepAffinity;
     int daysLeftUnitilHarvest;
 

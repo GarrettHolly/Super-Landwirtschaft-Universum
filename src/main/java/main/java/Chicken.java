@@ -1,7 +1,10 @@
 package main.java;
 
-public abstract class Chicken implements Animal {
+import lombok.Getter;
+
+public class Chicken implements Animal {
     AnimalAffinity animalAffinity;
+    @Getter
     double chickenAffinity;
     int daysLeftUnitilHarvest;
 
@@ -9,9 +12,6 @@ public abstract class Chicken implements Animal {
         this.animalAffinity = animalAffinity;
     }
 
-    /**
-     * @return double
-     */
     public void setAffinity() {
         chickenAffinity = animalAffinity.getAffinity();
     }

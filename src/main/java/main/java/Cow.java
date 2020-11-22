@@ -1,7 +1,10 @@
 package main.java;
 
+import lombok.Getter;
+
 public class Cow implements Animal {
     AnimalAffinity animalAffinity;
+    @Getter
     double cowAffinity;
     int daysLeftUnitilHarvest;
 
@@ -9,9 +12,6 @@ public class Cow implements Animal {
         this.animalAffinity = animalAffinity;
     }
 
-    /**
-     * @return double
-     */
     public void setAffinity() {
         cowAffinity = animalAffinity.getAffinity();
     }

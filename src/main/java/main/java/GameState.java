@@ -10,6 +10,7 @@ public class GameState {
     private int numFarms;
     private int numHealthyCrops;
     private int numDiseasedCrops;
+    private double currentMoney;
     private Farmer farmer;
     private DayNightCycle dayNightCycle;
     private Map<String, List<Animal>> animals;
