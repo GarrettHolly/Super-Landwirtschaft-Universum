@@ -1,6 +1,6 @@
 package main.java;
 
-public class CowDecorator implements Animal {
+public class CowDecorator extends Animal {
     protected Cow decoratedCow;
 
     public CowDecorator(Cow decoratedCow) {
@@ -9,5 +9,14 @@ public class CowDecorator implements Animal {
 
     public void setAffinity() {
         decoratedCow.setAffinity();
+    }
+
+    public double getAffinity() {
+        return decoratedCow.getAffinity();
+    }
+
+    @Override
+    public String toString() {
+        return decoratedCow.toString();
     }
 }

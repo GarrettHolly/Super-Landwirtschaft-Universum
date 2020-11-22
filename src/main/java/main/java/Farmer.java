@@ -7,7 +7,7 @@ public abstract class Farmer {
     protected double cropAffinity;
     protected double husbandryAffinity;
     protected double profitAffinity;
-    Random random = new Random();
+    Random random;
 
     /**
      * @return double

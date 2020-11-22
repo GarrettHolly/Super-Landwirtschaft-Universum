@@ -10,6 +10,11 @@ public class ChickenAffinityDecorator extends ChickenDecorator {
     @Override
     public void setAffinity() {
         decoratedChicken.setAffinity();
-        decoratedChicken.chickenAffinity *= affinityMultiplier;
+        decoratedChicken.affinity *= affinityMultiplier;
+    }
+
+    @Override
+    public String toString() {
+        return "Golden Chicken";
     }
 }

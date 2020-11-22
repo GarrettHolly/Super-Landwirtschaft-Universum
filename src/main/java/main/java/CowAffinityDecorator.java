@@ -10,6 +10,11 @@ public class CowAffinityDecorator extends CowDecorator {
     @Override
     public void setAffinity() {
         decoratedCow.setAffinity();
-        decoratedCow.cowAffinity *= affinityMultiplier;
+        decoratedCow.affinity *= affinityMultiplier;
+    }
+
+    @Override
+    public String toString() {
+        return "Golden Cow";
     }
 }

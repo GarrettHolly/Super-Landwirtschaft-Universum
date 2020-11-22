@@ -13,6 +13,11 @@ public class SheepAffinityDecorator extends SheepDecorator {
     @Override
     public void setAffinity() {
         decoratedSheep.setAffinity();
-        decoratedSheep.sheepAffinity *= affinityMultiplier;
+        decoratedSheep.affinity *= affinityMultiplier;
+    }
+
+    @Override
+    public String toString() {
+        return "Golden Sheep";
     }
 }

@@ -1,6 +1,6 @@
 package main.java;
 
-public abstract class ChickenDecorator implements Animal {
+public abstract class ChickenDecorator extends Animal {
     protected Chicken decoratedChicken;
 
     public ChickenDecorator(Chicken decoratedChicken) {
@@ -9,5 +9,14 @@ public abstract class ChickenDecorator implements Animal {
 
     public void setAffinity() {
         decoratedChicken.setAffinity();
+    }
+
+    public double getAffinity() {
+        return decoratedChicken.getAffinity();
+    }
+
+    @Override
+    public String toString() {
+        return decoratedChicken.toString();
     }
 }

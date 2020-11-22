@@ -7,12 +7,13 @@ import lombok.Data;
 @Data
 public class GameState {
 
-    private int numFarms = 1;
+    private int numFarms;
     private int numHealthyCrops;
     private int numDiseasedCrops;
     private double currentMoney;
-    private TasksCurrency incomeCurrency;
     private Farmer farmer;
+    private PurchaseCost purchaseCost;
+    private int currentDay;
     private DayNightCycle dayNightCycle;
     private Map<String, List<Animal>> animals;
 }

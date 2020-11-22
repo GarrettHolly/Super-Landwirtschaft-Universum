@@ -3,19 +3,23 @@ package main.java;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Chicken implements Animal {
-    AnimalAffinity animalAffinity;
+public class Chicken extends Animal {
     @Getter
-    double chickenAffinity;
+    BaseAnimalAffinity animalAffinity;
     @Getter
     @Setter
     int age;
 
-    public Chicken(AnimalAffinity animalAffinity) {
+    public Chicken(BaseAnimalAffinity animalAffinity) {
         this.animalAffinity = animalAffinity;
     }
 
     public void setAffinity() {
-        chickenAffinity = animalAffinity.getAffinity();
+        affinity = animalAffinity.getAffinity();
+    }
+
+    @Override
+    public String toString() {
+        return "Chicken";
     }
 }
