@@ -1,3 +1,7 @@
+
+/**
+ * Observer for when a crop withers.
+ */
 public class DiseasedCropDisplay extends Observer {
 
     public DiseasedCropDisplay(Subject subject) {

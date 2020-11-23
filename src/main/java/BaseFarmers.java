@@ -3,10 +3,10 @@ import java.util.Random;
 public class BaseFarmers extends Farmer {
 
     /**
-     * Constructor for base farmer stats
+     * Constructor for base farmer stats.
      * 
-     * @param farmerName
-     * @param random
+     * @param farmerName represents the string farmer name
+     * @param random     represents a random value
      */
     public BaseFarmers(String farmerName, Random random) {
         this.farmerName = farmerName;

@@ -1,5 +1,5 @@
 /**
- * Decorator to modify Sheep Affinities
+ * Decorator to modify Sheep Affinities.
  */
 public class SheepDecorator extends Animal {
     protected Sheep decoratedSheep;

@@ -1,6 +1,9 @@
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Gets the sheeps base affinities.
+ */
 public class Sheep extends Animal {
     @Getter
     BaseAnimalAffinity animalAffinity;;

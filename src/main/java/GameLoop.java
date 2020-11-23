@@ -145,8 +145,10 @@ public class GameLoop {
      * wither.
      */
     public void diseasedCropCheck() {
-        for (int i = 0; i < gameState.getNumHealthyCrops(); i++) {
-            if ((random.nextDouble() > 0.70)) {
+        int numHealthyCrops = gameState.getNumHealthyCrops();
+        for (int i = 0; i < numHealthyCrops; i++) {
+            double result = random.nextDouble();
+            if (result > 0.70) {
                 gameState.setNumHealthyCrops(gameState.getNumHealthyCrops() - 1);
                 gameState.setNumDiseasedCrops(gameState.getNumDiseasedCrops() + 1);
                 subjects.get("diseasedCrop").notifyAllObservers();
@@ -159,7 +161,8 @@ public class GameLoop {
      * farmer.
      */
     public void cureDiseasedCropCheck() {
-        for (int i = 0; i < gameState.getNumDiseasedCrops(); i++) {
+        int numDiseasedCrops = gameState.getNumDiseasedCrops();
+        for (int i = 0; i < numDiseasedCrops; i++) {
             if ((random.nextDouble() > 0.30)) {
                 gameState.setNumHealthyCrops(gameState.getNumHealthyCrops() + 1);
                 gameState.setNumDiseasedCrops(gameState.getNumDiseasedCrops() - 1);
@@ -174,24 +177,24 @@ public class GameLoop {
      * to see if multiple attacks happen.
      */
     public void predatorAttackAnimalCheck() {
-        if (random.nextDouble() > 0.90) {
+        if (random.nextDouble() > 0.70) {
             int sheepSize = gameState.getAnimals().get("Sheep").size();
             int chickenSize = gameState.getAnimals().get("Chicken").size();
             int cowSize = gameState.getAnimals().get("Cow").size();
             if (random.nextDouble() > 0.90 && sheepSize > 0) {
                 int randomElement = sheepSize - 1;
                 gameState.getAnimals().get("Sheep").remove(randomElement);
-                System.out.println("A Sheep was killed during the night, you now have "
+                System.out.println("A sheep was killed during the night, you now have "
                         + gameState.getAnimals().get("Sheep").size() + " sheep left.");
             } else if (random.nextDouble() > 0.75 && cowSize > 0) {
                 int randomElement = cowSize - 1;
                 gameState.getAnimals().get("Cow").remove(randomElement);
-                System.out.println("A Cow was killed during the night, you now have "
+                System.out.println("A cow was killed during the night, you now have "
                         + gameState.getAnimals().get("Cow").size() + " cows left.");
             } else if (chickenSize > 0) {
                 int randomElement = chickenSize - 1;
                 gameState.getAnimals().get("Chicken").remove(randomElement);
-                System.out.println("A Chicken was killed during the night, you now have "
+                System.out.println("A chicken was killed during the night, you now have "
                         + gameState.getAnimals().get("Chicken").size() + " chickens left.");
             }
         }

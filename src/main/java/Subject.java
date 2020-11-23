@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Subjects used for the observer to get what needs to be notified of updates.
+ */
 public class Subject {
     private List<Observer> observers = new ArrayList<>();
     private GameState gameState;

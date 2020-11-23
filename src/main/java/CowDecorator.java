@@ -1,5 +1,5 @@
 /**
- * Decorator to modify Cows Affinities
+ * Decorator to modify Cows Affinities.
  */
 public class CowDecorator extends Animal {
     protected Cow decoratedCow;

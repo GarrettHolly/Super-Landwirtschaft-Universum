@@ -1,3 +1,7 @@
+
+/**
+ * Observer for when a sheep is purchased.
+ */
 public class SheepPurchaseDisplay extends Observer {
     public SheepPurchaseDisplay(Subject subject) {
         this.subject = subject;

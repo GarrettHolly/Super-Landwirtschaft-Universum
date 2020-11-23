@@ -2,7 +2,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Gets the Chickens base affinities
+ * Gets the Chickens base affinities.
  */
 public class Chicken extends Animal {
 

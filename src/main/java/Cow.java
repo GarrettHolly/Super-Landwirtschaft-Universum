@@ -2,7 +2,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Gets the Cows base affinities
+ * Gets the Cows base affinities.
  */
 public class Cow extends Animal {
     @Getter

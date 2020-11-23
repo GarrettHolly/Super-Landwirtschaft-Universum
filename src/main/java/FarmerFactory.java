@@ -7,7 +7,7 @@ public class FarmerFactory {
      * 
      * @param random
      * @param gameMode
-     * @return Farmer
+     * @return farmer
      */
     public Farmer createFarmer(String gameMode, Random random) {
         Farmer farmer;

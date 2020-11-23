@@ -2,7 +2,7 @@
  * Decorator for the Chickens class
  */
 public class ChickenAffinityDecorator extends ChickenDecorator {
-    private final double affinityMultiplier = 3 + 1.5;
+    private static final double affinityMultiplier = 3 + 1.5;
 
     public ChickenAffinityDecorator(Chicken decoratedChicken) {
         super(decoratedChicken);

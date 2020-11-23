@@ -1,8 +1,8 @@
 /**
- * Decorator for the Farmer class to modify Crop affinity
+ * Decorator for the Farmer class to modify Crop affinity.
  */
 public class CropAffinityFarmerDecorator extends FarmerDecorator {
-    private final double affinityMultiplier = 3 + 1.5;
+    private static final double affinityMultiplier = 3 + 1.5;
 
     public CropAffinityFarmerDecorator(Farmer decoratedFarmer) {
         super(decoratedFarmer);

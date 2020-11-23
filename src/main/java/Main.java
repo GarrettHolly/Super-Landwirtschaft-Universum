@@ -26,7 +26,7 @@ public class Main {
         sheepSubject.setState(easyGameState);
         cowSubject.setState(easyGameState);
         chickenSubject.setState(easyGameState);
-
+        @SuppressWarnings("all")
         Map<String, Subject> subjects = new HashMap<>() {
             {
                 put("diseasedCrop", diseasedCrop);

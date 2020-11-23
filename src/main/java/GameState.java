@@ -3,6 +3,8 @@ import java.util.Map;
 import lombok.Data;
 
 /**
+ * This class is used for updating the games state throughout gameplay.
+ * 
  * @return int
  * @return int
  * @return int

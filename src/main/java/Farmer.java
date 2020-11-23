@@ -1,5 +1,8 @@
 import java.util.Random;
 
+/**
+ * Getters for farmers base affinities.
+ */
 public abstract class Farmer {
     protected String farmerName;
     protected double cropAffinity;

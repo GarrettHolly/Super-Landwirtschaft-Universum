@@ -1,5 +1,5 @@
 /**
- * Decorator to modify Farmer Affinities
+ * Decorator to modify Farmer Affinities.
  */
 public abstract class FarmerDecorator extends Farmer {
     protected Farmer decoratedFarmer;

@@ -1,8 +1,8 @@
 /**
- * Decorator for the Sheep class
+ * Decorator for the Sheep class.
  */
 public class SheepAffinityDecorator extends SheepDecorator {
-    private final double affinityMultiplier = 3 + 1.5;
+    private static final double affinityMultiplier = 3 + 1.5;
 
     public SheepAffinityDecorator(Sheep decoratedSheep) {
         super(decoratedSheep);
