@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Static values for the money recieved from each task you do that gives money.
+ */
 public class TasksCurrency {
     private final double chickenIncome = 1.0;
     private final double cowIncome = 5.0;

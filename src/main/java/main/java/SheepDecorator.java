@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Decorator to modify Sheep Affinities
+ */
 public class SheepDecorator extends Animal {
     protected Sheep decoratedSheep;
 
@@ -11,10 +14,16 @@ public class SheepDecorator extends Animal {
         decoratedSheep.setAffinity();
     }
 
+    /**
+     * @return double
+     */
     public double getAffinity() {
         return decoratedSheep.getAffinity();
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         return decoratedSheep.toString();

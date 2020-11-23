@@ -38,6 +38,10 @@ public class Main {
         gameLoop.loop();
     }
 
+    /**
+     * @param random
+     * @return Farmer
+     */
     private static Farmer createFarmer(Random random) {
         Farmer farmer;
 

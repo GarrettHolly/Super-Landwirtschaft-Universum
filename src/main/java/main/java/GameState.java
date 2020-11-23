@@ -4,6 +4,21 @@ import java.util.List;
 import java.util.Map;
 import lombok.Data;
 
+/**
+ * @return int
+ * @return int
+ * @return int
+ * @return double
+ * @return Farmer
+ * @return PurchaseCost
+ * @return int
+ * @return DayNightCycle
+ * @return Map<String, List<Animal>>
+ * @return boolean
+ * @return boolean
+ * @return int
+ * @return String
+ */
 @Data
 public class GameState {
 

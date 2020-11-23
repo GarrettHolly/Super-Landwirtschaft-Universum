@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Decorator for the Farmer class to modify Crop affinity
+ */
 public class CropAffinityFarmerDecorator extends FarmerDecorator {
     private final double affinityMultiplier = 3 + 1.5;
 

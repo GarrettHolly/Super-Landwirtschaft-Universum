@@ -8,9 +8,19 @@ public class Sheep extends Animal {
     BaseAnimalAffinity animalAffinity;;
     @Getter
     @Setter
+
+    /**
+     * @param animalAffinity
+     * @return BaseAnimalAffinity
+     */
     int age;
 
+    /**
+     * @param animalAffinity
+     * @return int
+     */
     public Sheep(BaseAnimalAffinity animalAffinity) {
+
         this.animalAffinity = animalAffinity;
     }
 
@@ -18,6 +28,9 @@ public class Sheep extends Animal {
         affinity = animalAffinity.getAffinity();
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         return "Sheep";

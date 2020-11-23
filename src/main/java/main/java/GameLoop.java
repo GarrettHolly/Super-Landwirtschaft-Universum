@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * This is the main loop to the game to be able to play it. I will call on the
+ * day function which in turn will call on many methods to run game logic.
+ */
 public class GameLoop {
 
     Random random;
@@ -14,6 +18,13 @@ public class GameLoop {
     TasksCurrency incomeCurrency;
     DecimalFormat df = new DecimalFormat("#,###.00");
 
+    /**
+     * 
+     * @param gameState
+     * @param random
+     * @param incomeCurrency
+     * @param animalAffinity
+     */
     public GameLoop(GameState gameState, Random random, TasksCurrency incomeCurrency,
             BaseAnimalAffinity animalAffinity) {
         this.gameState = gameState;
@@ -22,6 +33,10 @@ public class GameLoop {
         this.animalAffinity = animalAffinity;
     }
 
+    /**
+     * The main loop that will call on Day then check for a win if that fails it
+     * will call night and then wait 5 seconds.
+     */
     public void loop() {
         while (true) {
             System.out.println("Today is day " + gameState.getCurrentDay() + "\n");
@@ -46,6 +61,9 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Day method to run all functions that happen for each day.
+     */
     private void day() {
         diseasedCropCheck();
         cureDiseasedCropCheck();
@@ -62,10 +80,20 @@ public class GameLoop {
 
     }
 
+    /**
+     * Night method to run all functions that happen for each night.
+     */
     private void night() {
         predatorAttackAnimalCheck();
     }
 
+    /**
+     * This method determines if an animal is old enough to be harvested from and if
+     * they are so old that they will die and remove them from the list.
+     *
+     * @param animals
+     * @param income
+     */
     private void animalChecks(List<Animal> animals, double income) {
         List<Animal> animalsToKill = new ArrayList<>();
 
@@ -81,12 +109,24 @@ public class GameLoop {
         animals.removeAll(animalsToKill);
     }
 
+    /**
+     * Method for checking if an animal is going to die.
+     * 
+     * @param animal
+     * @param animalsToKill
+     */
     private void deathCheck(Animal animal, List<Animal> animalsToKill) {
         if (animal.getAge() >= 14) {
             animalsToKill.add(animal);
         }
     }
 
+    /**
+     * Gathers the money from animals that are old enough to be harvested.
+     * 
+     * @param animal
+     * @param income
+     */
     private void harvestAnimal(Animal animal, double income) {
         if (animal.getAge() % 2 == 0) {
             return;
@@ -99,6 +139,10 @@ public class GameLoop {
 
     }
 
+    /**
+     * Rolls a random number to see if any given crop will becomed diseased and
+     * wither.
+     */
     private void diseasedCropCheck() {
         for (int i = 0; i < gameState.getNumHealthyCrops(); i++) {
             if ((random.nextDouble() > 0.70)) {
@@ -110,6 +154,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Rolls a random number to see if any given diseased crop will be cured by the
+     * farmer.
+     */
     private void cureDiseasedCropCheck() {
         for (int i = 0; i < gameState.getNumDiseasedCrops(); i++) {
             if ((random.nextDouble() > 0.30)) {
@@ -120,6 +168,11 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Rolls a random number to see if a predator will attack an animal then rolls
+     * again to see which animal it will kill. It will recursively call upon itself
+     * to see if multiple attacks happen.
+     */
     private void predatorAttackAnimalCheck() {
         if (random.nextDouble() > 0.90) {
             int sheepSize = gameState.getAnimals().get("Sheep").size();
@@ -147,6 +200,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Rolls a random number to see if a predator attacks the crops during the day
+     * and recursively calls itself with a random chance to kill mutliple crops.
+     */
     private void predatorAttackCropCheck() {
         if (random.nextDouble() > 0.90) {
             gameState.setNumHealthyCrops(gameState.getNumHealthyCrops() - 1);
@@ -158,6 +215,9 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Method to see if you have enough money to purchase a chicken.
+     */
     private void purchaseChickenCheck() {
         int chickenCost = gameState.getPurchaseCost().getChickenCost();
 
@@ -184,6 +244,9 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Method to see if you have enough money to purhcase a Cow.
+     */
     private void purchaseCowCheck() {
         int cowCost = gameState.getPurchaseCost().getCowCost();
         if (gameState.getNumFarms() * 15 >= gameState.getAnimals().get("Cow").size()) {
@@ -210,6 +273,9 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Method to see if you have enough money to purhcase a Sheep.
+     */
     private void purchaseSheepCheck() {
         int sheepCost = gameState.getPurchaseCost().getSheepCost();
 
@@ -236,6 +302,9 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Harvests crops every 3 days and add the value to your current money
+     */
     private void harvestCrops() {
         if (gameState.getCurrentDay() % 3 != 0) {
             return;
@@ -251,10 +320,16 @@ public class GameLoop {
                 "You made " + df.format(rainCheckTotal) + " money from " + gameState.getNumHealthyCrops() + " crops.");
     }
 
+    /**
+     * There is a random chance for rain to happen and increase the profits of your
+     * crops.
+     * 
+     * @return double
+     */
     private double rainCheck() {
         switch (gameState.getDayNightCycle()) {
             case DAY:
-                if (random.nextDouble() > 0.00) {
+                if (random.nextDouble() > 0.80) {
                     System.out.println("It rained today you recieved a bonus on harvested crops!");
                     return 1.2;
                 }
@@ -270,6 +345,10 @@ public class GameLoop {
         return 1;
     }
 
+    /**
+     * This method upgrades your farms tier increasing the ammount of crops you
+     * have.
+     */
     private void upgradeFarmCheck() {
         int farmUpgradeCost = gameState.getPurchaseCost().getUpgradeFarmCost();
         if (gameState.getCurrentMoney() > farmUpgradeCost + 200) {
@@ -281,6 +360,11 @@ public class GameLoop {
         }
     }
 
+    /**
+     * The games win condition that checks if the farms tier is 10.
+     * 
+     * @return boolean
+     */
     private boolean winConditoin() {
         if (gameState.getNumFarms() >= 10) {
             return true;
@@ -288,6 +372,9 @@ public class GameLoop {
         return false;
     }
 
+    /**
+     * Method to print the money at the end of the day.
+     */
     private void displayMoney() {
         System.out.println("You have $" + df.format(Math.round(gameState.getCurrentMoney())) + "\n");
     }

@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Decorator to modify Farmer Affinities
+ */
 public abstract class FarmerDecorator extends Farmer {
     protected Farmer decoratedFarmer;
 

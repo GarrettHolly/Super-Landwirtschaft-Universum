@@ -2,9 +2,16 @@ package main.java;
 
 import java.util.Random;
 
+/**
+ * Gives the base affinities for animals
+ */
 public class BaseAnimalAffinity {
     Random random;
 
+    /**
+     * 
+     * @param random
+     */
     public BaseAnimalAffinity(Random random) {
         this.random = random;
     }
