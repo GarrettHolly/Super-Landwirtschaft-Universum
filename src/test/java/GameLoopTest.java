@@ -4,6 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -191,11 +192,12 @@ public class GameLoopTest {
     }
 
     /**
-     * Uses rainCheck() to check for crop multiplier for rain.
+     * Uses rainCheck() to check for crop multiplier for rain at night.
      */
     @Test
     public void rainCheckNightShouldReturnDouble() {
-        easyGameState.setDayNightCycle(easyGameState.getDayNightCycle().NIGHT);
+        easyGameState.getDayNightCycle();
+        easyGameState.setDayNightCycle(DayNightCycle.NIGHT);
         when(random.nextDouble()).thenReturn(1.0);
         gameLoop.rainCheck();
         assertEquals(gameLoop.rainCheck(), 1.2, 0.0005);
@@ -206,7 +208,8 @@ public class GameLoopTest {
      */
     @Test
     public void rainCheckShouldReturnOne() {
-        easyGameState.setDayNightCycle(easyGameState.getDayNightCycle().NIGHT);
+        easyGameState.getDayNightCycle();
+        easyGameState.setDayNightCycle(DayNightCycle.DAY);
         when(random.nextDouble()).thenReturn(0.0);
         gameLoop.rainCheck();
         assertEquals(gameLoop.rainCheck(), 1.0, 0.0005);

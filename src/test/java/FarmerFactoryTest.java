@@ -75,8 +75,8 @@ public class FarmerFactoryTest {
         when(random.nextDouble()).thenReturn(1.0);
         GameStateFactory gameStateFactory = new GameStateFactory(random);
         easyGameState = gameStateFactory.getGameState("Easy");
-        when(random.nextDouble()).thenReturn(1.0).thenReturn(0.0).thenReturn(0.0).thenReturn(0.0).thenReturn(0.0);
+        when(random.nextDouble()).thenReturn(1.0).thenReturn(0.0).thenReturn(0.0).thenReturn(1.0);
         easyGameState.setFarmer(farmerFactory.createFarmer("easy", random));
-        assertEquals(easyGameState.getFarmer().getProfitAffinity(), 2.5, 0.005);
+        assertEquals(easyGameState.getFarmer().getProfitAffinity(), 3.5, 0.005);
     }
 }
