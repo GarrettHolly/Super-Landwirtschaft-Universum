@@ -8,9 +8,9 @@ This game has incremental elements to it with farm upgrades going up in price ea
 
 ## **Design Pattern Usage**
 
--   **Decorator Design Pattern** - This pattern will fit well in the affinities requirements for animals, farmers, and crops.
--   **Factory Design Pattern** - The factory pattern is helpful in creating our farm and a factory where we can easily acess and generate these farms.
--   **Mediator Design Pattern** - As stated in the assignment documentation this will help with communication when doing updates every tick for the program.
+-   **Decorator Design Pattern** - This pattern is being used to created decorated modifiers on the farmers and animals affinities. We can use this to easily expand stats for the games future.
+-   **Factory Design Pattern** - This pattern is being used to have a factory that builds the farmers when called upon as well as generate a factory to build the game state. This design allowed for easy setup of difficulty changes for the games future.
+-   **Observer Design Pattern** - This pattern was used to generate observers on different outcomes of each RNG situation within the gameloop. This is helpful for easily adding additional changes in the future such as an achivement tracking system.
 
 ---
 
