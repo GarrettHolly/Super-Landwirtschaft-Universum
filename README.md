@@ -10,7 +10,8 @@ This game has incremental elements to it with farm upgrades going up in price ea
 
 -   **Decorator Design Pattern** - This pattern is being used to created decorated modifiers on the farmers and animals affinities. We can use this to easily expand stats for the games future.
 -   **Factory Design Pattern** - This pattern is being used to have a factory that builds the farmers when called upon as well as generate a factory to build the game state. This design allowed for easy setup of difficulty changes for the games future.
--   **Observer Design Pattern** - This pattern was used to generate observers on different outcomes of each RNG situation within the gameloop. This is helpful for easily adding additional changes in the future such as an achivement tracking system.
+-   **Observer Design Pattern** - This pattern was used to generate observers on different outcomes of each RNG situation within the gameloop. This is helpful for easily adding additional changes in the future such as an achievemen tracking system.
+-   **Video Link** - https://www.youtube.com/watch?v=BUmCoMXHu_Y
 
 ---
 
