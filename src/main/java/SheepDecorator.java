@@ -13,6 +13,8 @@ public class SheepDecorator extends Animal {
     }
 
     /**
+     * Getter for decorated sheep affinity.
+     * 
      * @return double
      */
     public double getAffinity() {
@@ -20,6 +22,8 @@ public class SheepDecorator extends Animal {
     }
 
     /**
+     * ToString for decorated sheep.
+     * 
      * @return String
      */
     @Override

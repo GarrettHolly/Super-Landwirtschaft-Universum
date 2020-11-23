@@ -1,5 +1,5 @@
 /**
- * Decorator for the Chickens class
+ * Decorator for the Chickens class.
  */
 public class ChickenAffinityDecorator extends ChickenDecorator {
     private static final double affinityMultiplier = 3 + 1.5;
@@ -15,6 +15,8 @@ public class ChickenAffinityDecorator extends ChickenDecorator {
     }
 
     /**
+     * ToString for a decorated chicken.
+     * 
      * @return String
      */
     @Override

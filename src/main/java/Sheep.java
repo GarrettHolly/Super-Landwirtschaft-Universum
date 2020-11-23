@@ -5,20 +5,27 @@ import lombok.Setter;
  * Gets the sheeps base affinities.
  */
 public class Sheep extends Animal {
-    @Getter
-    BaseAnimalAffinity animalAffinity;;
-    @Getter
-    @Setter
-
     /**
-     * @param animalAffinity
+     * Getter for base animal affinity.
+     * 
+     * @param animalAffinity represents animals affinity
      * @return BaseAnimalAffinity
      */
+    @Getter
+    BaseAnimalAffinity animalAffinity;
+    /**
+     * Getter and Setter for animal age.
+     * 
+     * @return int
+     */
+    @Getter
+    @Setter
     int age;
 
     /**
-     * @param animalAffinity
-     * @return int
+     * Constructor for sheep.
+     * 
+     * @param animalAffinity represents animals affinity
      */
     public Sheep(BaseAnimalAffinity animalAffinity) {
 
@@ -30,6 +37,8 @@ public class Sheep extends Animal {
     }
 
     /**
+     * ToString for sheep.
+     * 
      * @return String
      */
     @Override

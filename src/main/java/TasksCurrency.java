@@ -2,12 +2,14 @@
  * Static values for the money recieved from each task you do that gives money.
  */
 public class TasksCurrency {
-    private final double chickenIncome = 1.0;
-    private final double cowIncome = 5.0;
-    private final double sheepIncome = 8.0;
-    private final double cropIncome = 95.0;
+    private static final double chickenIncome = 1.0;
+    private static final double cowIncome = 5.0;
+    private static final double sheepIncome = 8.0;
+    private static final double cropIncome = 95.0;
 
     /**
+     * Getter for chicken income.
+     * 
      * @return double
      */
     public double getChickenIncome() {
@@ -15,6 +17,8 @@ public class TasksCurrency {
     }
 
     /**
+     * Getter for cow income.
+     * 
      * @return double
      */
     public double getCowIncome() {
@@ -22,6 +26,8 @@ public class TasksCurrency {
     }
 
     /**
+     * Getter for sheep income.
+     * 
      * @return double
      */
     public double getSheepIncome() {
@@ -29,6 +35,8 @@ public class TasksCurrency {
     }
 
     /**
+     * Getter for crop income.
+     * 
      * @return double
      */
     public double getCropIncome() {

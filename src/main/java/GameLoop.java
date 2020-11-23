@@ -19,11 +19,12 @@ public class GameLoop {
     DecimalFormat df = new DecimalFormat("#,###.00");
 
     /**
+     * Constructor for the game loop.
      * 
-     * @param gameState
-     * @param random
-     * @param incomeCurrency
-     * @param animalAffinity
+     * @param gameState      represents the games current state
+     * @param random         represents a random value
+     * @param incomeCurrency represents the value of each action
+     * @param animalAffinity represents the animals affinity
      */
     public GameLoop(GameState gameState, Random random, TasksCurrency incomeCurrency, BaseAnimalAffinity animalAffinity,
             Map<String, Subject> subjects) {
@@ -92,8 +93,8 @@ public class GameLoop {
      * This method determines if an animal is old enough to be harvested from and if
      * they are so old that they will die and remove them from the list.
      *
-     * @param animals
-     * @param income
+     * @param animals represents the list of animals
+     * @param income  represents the currency made
      */
     public void animalChecks(List<Animal> animals, double income) {
         List<Animal> animalsToKill = new ArrayList<>();
@@ -113,8 +114,8 @@ public class GameLoop {
     /**
      * Method for checking if an animal is going to die.
      * 
-     * @param animal
-     * @param animalsToKill
+     * @param animal        represents an animal
+     * @param animalsToKill represents the list of animals to die of age
      */
     public void deathCheck(Animal animal, List<Animal> animalsToKill) {
         if (animal.getAge() >= 14) {
@@ -125,8 +126,8 @@ public class GameLoop {
     /**
      * Gathers the money from animals that are old enough to be harvested.
      * 
-     * @param animal
-     * @param income
+     * @param animal represents an animal
+     * @param income represents the currency made
      */
     public void harvestAnimal(Animal animal, double income) {
         if (animal.getAge() % 2 == 0) {
@@ -306,7 +307,7 @@ public class GameLoop {
     }
 
     /**
-     * Harvests crops every 3 days and add the value to your current money
+     * Harvests crops every 3 days and add the value to your current money.
      */
     public void harvestCrops() {
         if (gameState.getCurrentDay() % 3 != 0) {
@@ -344,8 +345,10 @@ public class GameLoop {
                     return 1.2;
                 }
                 break;
+            default:
+                return 1.0;
         }
-        return 1;
+        return 1.0;
     }
 
     /**

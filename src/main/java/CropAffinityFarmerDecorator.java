@@ -9,6 +9,8 @@ public class CropAffinityFarmerDecorator extends FarmerDecorator {
     }
 
     /**
+     * Getter for farmers crop affinity.
+     * 
      * @return double
      */
     @Override

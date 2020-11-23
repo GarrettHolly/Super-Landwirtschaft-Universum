@@ -3,20 +3,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+/**
+ * Factory to create different difficulty game modes.
+ */
 public class GameStateFactory {
 
     Random random;
 
     /**
-     * Factory to create different difficulty game modes.
-     * 
-     * @param gameMode
-     * @param random
+     * Constructor for game state factory.
+     *
+     * @param random represents a random value
      */
     public GameStateFactory(Random random) {
         this.random = random;
     }
 
+    /**
+     * Method to create the game state and assign base values for running the game.
+     * 
+     * @param gameMode represents the current game mode
+     * @return
+     */
     public GameState getGameState(String gameMode) {
         FarmerFactory farmerFactory = new FarmerFactory();
         GameState gameState = new GameState();

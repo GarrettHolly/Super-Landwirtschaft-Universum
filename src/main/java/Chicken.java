@@ -7,34 +7,43 @@ import lombok.Setter;
 public class Chicken extends Animal {
 
     /**
-     * @param animalAffinity
-     * @return BaseAnimalAffinity
+     * Getters for the animalAffinity.
+     * 
+     * @param animalAffinity represents animals affinity
+     * @return BaseAnimalAffinity returns the base animal affinites
      */
     @Getter
     BaseAnimalAffinity animalAffinity;
 
     /**
-     * @param animalAffinity
-     * @return int
-     * @param animalAffinity
+     * Getters and Setters for the chickens age.
+     * 
+     * @param animalAffinity represents animals affinity
+     * @return int returnss an integer of age
      */
     @Getter
     @Setter
     int age;
 
     /**
+     * Constructor for chicken.
      * 
-     * @param animalAffinity
+     * @param animalAffinity represents animals affinty
      */
     public Chicken(BaseAnimalAffinity animalAffinity) {
         this.animalAffinity = animalAffinity;
     }
 
+    /**
+     * Setter for animal affinity.
+     */
     public void setAffinity() {
         affinity = animalAffinity.getAffinity();
     }
 
     /**
+     * ToString for chickens.
+     * 
      * @return String
      */
     @Override

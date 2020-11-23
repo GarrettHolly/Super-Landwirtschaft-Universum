@@ -13,6 +13,8 @@ public class CowDecorator extends Animal {
     }
 
     /**
+     * Getter for cow affinity.
+     * 
      * @return double
      */
     public double getAffinity() {
@@ -20,6 +22,8 @@ public class CowDecorator extends Animal {
     }
 
     /**
+     * ToString for a decorated cow.
+     * 
      * @return String
      */
     @Override

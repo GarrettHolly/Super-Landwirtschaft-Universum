@@ -8,9 +8,6 @@ public class SheepAffinityDecorator extends SheepDecorator {
         super(decoratedSheep);
     }
 
-    /**
-     * @return double
-     */
     @Override
     public void setAffinity() {
         decoratedSheep.setAffinity();
@@ -18,6 +15,8 @@ public class SheepAffinityDecorator extends SheepDecorator {
     }
 
     /**
+     * ToString for decorated sheep.
+     * 
      * @return String
      */
     @Override

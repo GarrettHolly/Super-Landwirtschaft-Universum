@@ -9,6 +9,8 @@ public abstract class FarmerDecorator extends Farmer {
     }
 
     /**
+     * Getter for decorated crop affinity.
+     * 
      * @return double
      */
     @Override
@@ -17,6 +19,8 @@ public abstract class FarmerDecorator extends Farmer {
     }
 
     /**
+     * Getter for decorated husbandry affinity.
+     * 
      * @return double
      */
     @Override
@@ -25,6 +29,8 @@ public abstract class FarmerDecorator extends Farmer {
     }
 
     /**
+     * Getter for decorated profit affinity.
+     * 
      * @return double
      */
     @Override
@@ -33,6 +39,8 @@ public abstract class FarmerDecorator extends Farmer {
     }
 
     /**
+     * Getter for decorated farmer name.
+     * 
      * @return String
      */
     @Override

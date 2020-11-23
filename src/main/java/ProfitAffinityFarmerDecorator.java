@@ -9,6 +9,8 @@ public class ProfitAffinityFarmerDecorator extends FarmerDecorator {
     }
 
     /**
+     * Getter for decorated profit affinity.
+     * 
      * @return double
      */
     @Override

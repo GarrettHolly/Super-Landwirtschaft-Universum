@@ -5,7 +5,9 @@ import java.util.Random;
 public class Main {
 
     /**
-     * @param args
+     * Creates basic calls for a game loop to be created.
+     * 
+     * @param args represents arguments for main
      */
     public static void main(String[] args) {
         Random random = new Random();

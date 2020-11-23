@@ -1,5 +1,5 @@
 /**
- * Decorator to modify Chickens Affinities
+ * Decorator to modify Chickens Affinities.
  */
 public abstract class ChickenDecorator extends Animal {
     protected Chicken decoratedChicken;
@@ -13,6 +13,8 @@ public abstract class ChickenDecorator extends Animal {
     }
 
     /**
+     * Gets affinity for a decorated chicken.
+     * 
      * @return double
      */
     public double getAffinity() {
@@ -20,6 +22,8 @@ public abstract class ChickenDecorator extends Animal {
     }
 
     /**
+     * ToString for the decorated chicken.
+     * 
      * @return String
      */
     @Override

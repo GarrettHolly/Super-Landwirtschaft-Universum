@@ -15,6 +15,8 @@ public class CowAffinityDecorator extends CowDecorator {
     }
 
     /**
+     * ToString for a decorated cow.
+     * 
      * @return String
      */
     @Override

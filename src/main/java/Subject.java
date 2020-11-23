@@ -20,6 +20,9 @@ public class Subject {
         observers.add(observer);
     }
 
+    /**
+     * Used to notify observers of an update that has occured.
+     */
     public void notifyAllObservers() {
         for (Observer observer : observers) {
             observer.update();

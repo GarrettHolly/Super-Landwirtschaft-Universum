@@ -10,6 +10,8 @@ public class HusbandryAffinityFarmerDecorator extends FarmerDecorator {
     }
 
     /**
+     * Getter for decorated husbandry affinity.
+     * 
      * @return double
      */
     @Override
