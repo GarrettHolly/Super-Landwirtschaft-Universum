@@ -5,7 +5,10 @@ import java.util.Random;
 public class FarmerFactory {
 
     /**
+     * Factory for creating our farmer and adjusts with diffictuly.
+     * 
      * @param random
+     * @param gameMode
      * @return Farmer
      */
     public Farmer createFarmer(String gameMode, Random random) {

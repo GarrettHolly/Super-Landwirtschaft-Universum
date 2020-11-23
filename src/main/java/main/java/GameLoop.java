@@ -3,6 +3,7 @@ package main.java;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -16,6 +17,7 @@ public class GameLoop {
     GameState gameState;
     BaseAnimalAffinity animalAffinity;
     TasksCurrency incomeCurrency;
+    Map<String, Subject> subjects;
     DecimalFormat df = new DecimalFormat("#,###.00");
 
     /**
@@ -25,12 +27,13 @@ public class GameLoop {
      * @param incomeCurrency
      * @param animalAffinity
      */
-    public GameLoop(GameState gameState, Random random, TasksCurrency incomeCurrency,
-            BaseAnimalAffinity animalAffinity) {
+    public GameLoop(GameState gameState, Random random, TasksCurrency incomeCurrency, BaseAnimalAffinity animalAffinity,
+            Map<String, Subject> subjects) {
         this.gameState = gameState;
         this.random = random;
         this.incomeCurrency = incomeCurrency;
         this.animalAffinity = animalAffinity;
+        this.subjects = subjects;
     }
 
     /**
@@ -148,8 +151,7 @@ public class GameLoop {
             if ((random.nextDouble() > 0.70)) {
                 gameState.setNumHealthyCrops(gameState.getNumHealthyCrops() - 1);
                 gameState.setNumDiseasedCrops(gameState.getNumDiseasedCrops() + 1);
-                System.out.println("A crop has withered you have a chance to cure it still. You have "
-                        + gameState.getNumHealthyCrops() + " crops still alive.");
+                subjects.get("diseasedCrop").notifyAllObservers();
             }
         }
     }
@@ -238,7 +240,7 @@ public class GameLoop {
                 chickens.add(chicken);
             }
 
-            System.out.println("You have purchased a chicken.");
+            subjects.get("chickenSubject").notifyAllObservers();
             gameState.setCurrentMoney(gameState.getCurrentMoney() - gameState.getPurchaseCost().getChickenCost());
             gameState.getPurchaseCost().setCowCost(chickenCost + 5);
         }
@@ -249,7 +251,7 @@ public class GameLoop {
      */
     private void purchaseCowCheck() {
         int cowCost = gameState.getPurchaseCost().getCowCost();
-        if (gameState.getNumFarms() * 15 >= gameState.getAnimals().get("Cow").size()) {
+        if (gameState.getAnimals().get("Cow").size() >= gameState.getNumFarms() * 15) {
             return;
         }
 
@@ -266,7 +268,7 @@ public class GameLoop {
                 cows.add(cow);
             }
 
-            System.out.println("You have purchased a cow.");
+            subjects.get("cowSubject").notifyAllObservers();
             gameState.setCurrentMoney(gameState.getCurrentMoney() - gameState.getPurchaseCost().getCowCost());
             gameState.getPurchaseCost().setCowCost(cowCost + 10);
 
@@ -296,7 +298,7 @@ public class GameLoop {
                 sheeps.add(sheep);
             }
 
-            System.out.println("You have purchased a sheep.");
+            subjects.get("sheepSubject").notifyAllObservers();
             gameState.setCurrentMoney(gameState.getCurrentMoney() - gameState.getPurchaseCost().getSheepCost());
             gameState.getPurchaseCost().setSheepCost(sheepCost + 15);
         }

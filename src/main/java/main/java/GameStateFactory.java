@@ -8,9 +8,17 @@ public class GameStateFactory {
 
     Random random;
 
-    public GameStateFactory(String gameMode, Random random) {
+    /**
+     * Factory to create different difficulty game modes.
+     * 
+     * @param gameMode
+     * @param random
+     */
+    public GameStateFactory(Random random) {
         this.random = random;
+    }
 
+    public GameState getGameState(String gameMode) {
         FarmerFactory farmerFactory = new FarmerFactory();
         GameState gameState = new GameState();
         PurchaseCost purchaseCost = new PurchaseCost();
@@ -36,5 +44,6 @@ public class GameStateFactory {
         purchaseCost.setSheepCost(35 * difficultyMultiplier);
         purchaseCost.setUpgradeFarmCost(1000 * difficultyMultiplier);
         gameState.setPurchaseCost(purchaseCost);
+        return gameState;
     }
 }
