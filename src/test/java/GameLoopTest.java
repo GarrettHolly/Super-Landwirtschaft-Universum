@@ -1,12 +1,17 @@
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 
 public class GameLoopTest {
 
@@ -14,10 +19,12 @@ public class GameLoopTest {
     GameState easyGameState;
     @Mock
     Random random;
+    @Rule
+    public MockitoRule mockitoRule = MockitoJUnit.rule();
 
     @Before
     public void setUp() {
-        Random random = new Random();
+
         TasksCurrency incomeCurrency = new TasksCurrency();
         BaseAnimalAffinity animalAffinity = new BaseAnimalAffinity(random);
         Subject diseasedCrop = new Subject();
@@ -28,7 +35,7 @@ public class GameLoopTest {
         new SheepPurchaseDisplay(sheepSubject);
         new CowPurchaseDisplay(cowSubject);
         new ChickenPurchaseDisplay(chickenSubject);
-
+        when(random.nextDouble()).thenReturn(0.0);
         GameStateFactory gameStateFactory = new GameStateFactory(random);
         easyGameState = gameStateFactory.getGameState("Easy");
         diseasedCrop.setState(easyGameState);
@@ -49,7 +56,9 @@ public class GameLoopTest {
 
     }
 
+    @Test
     public void predatorAttackCropTestShouldRemoveOneCrop() {
+        when(random.nextDouble()).thenReturn(1.0).thenReturn(0.0);
         gameLoop.predatorAttackCropCheck();
         assertEquals(easyGameState.getNumHealthyCrops(), 24);
     }
