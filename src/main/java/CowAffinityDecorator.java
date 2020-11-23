@@ -1,7 +1,8 @@
-package main.java;
-
+/**
+ * Decorator for the Cow class.
+ */
 public class CowAffinityDecorator extends CowDecorator {
-    private final double affinityMultiplier = 3 + 1.5;
+    private static final double affinityMultiplier = 3 + 1.5;
 
     public CowAffinityDecorator(Cow decoratedCow) {
         super(decoratedCow);
@@ -13,6 +14,11 @@ public class CowAffinityDecorator extends CowDecorator {
         decoratedCow.affinity *= affinityMultiplier;
     }
 
+    /**
+     * ToString for a decorated cow.
+     * 
+     * @return String
+     */
     @Override
     public String toString() {
         return "Golden Cow";

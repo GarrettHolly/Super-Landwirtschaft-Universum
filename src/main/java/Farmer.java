@@ -1,7 +1,8 @@
-package main.java;
-
 import java.util.Random;
 
+/**
+ * Getters for farmers base affinities.
+ */
 public abstract class Farmer {
     protected String farmerName;
     protected double cropAffinity;
@@ -10,6 +11,8 @@ public abstract class Farmer {
     Random random;
 
     /**
+     * Getter for crop affinity.
+     * 
      * @return double
      */
     public double getCropAffinity() {
@@ -18,6 +21,8 @@ public abstract class Farmer {
     }
 
     /**
+     * Getter for husbandry affinity.
+     * 
      * @return double
      */
     public double getHusbandryAffinity() {
@@ -26,6 +31,8 @@ public abstract class Farmer {
     }
 
     /**
+     * Getter for profit affinity.
+     * 
      * @return double
      */
     public double getProfitAffinity() {
@@ -34,6 +41,8 @@ public abstract class Farmer {
     }
 
     /**
+     * Getter for farmer name.
+     * 
      * @return String
      */
     public String getName() {
